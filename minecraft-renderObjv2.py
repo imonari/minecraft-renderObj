@@ -176,8 +176,8 @@ def load_obj(filename, defaultBlock, materials) :
 
     fh = open(filename)
     for line in fh :
-        if line[0] == '#' : continue
-        line = line.strip().split(' ')
+        if (line[0] == '#') or (line.isspace()) : continue # comment or empty line
+        line = line.split()
         if line[0] == 'v' : #vertex
             V.append(line[1:])
         elif line[0] == 'vt' : #tex-coord
